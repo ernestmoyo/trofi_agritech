@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .gradient-hero {
+    background: linear-gradient(135deg, #0a1f0c 0%, #1b5620 40%, #2d7d32 70%, #4ea24e 100%);
+  }
+  .gradient-card {
+    background: linear-gradient(135deg, rgba(45, 125, 50, 0.05) 0%, rgba(78, 162, 78, 0.1) 100%);
+  }
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+  .stat-card {
+    @apply bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+  .module-card {
+    @apply bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900;
+  }
+  .section-subtitle {
+    @apply text-lg text-gray-600 max-w-3xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-trofi-600 to-trofi-400;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-float-delayed {
+    animation: float 6s ease-in-out 2s infinite;
+  }
+  .animate-pulse-slow {
+    animation: pulse 4s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #9db29e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #748f76;
+}
+
+/* Chart animations */
+.recharts-wrapper {
+  font-family: 'Inter', system-ui, sans-serif !important;
+}

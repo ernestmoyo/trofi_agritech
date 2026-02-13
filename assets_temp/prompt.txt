@@ -1,0 +1,198 @@
+Here's the updated prompt with the new name and the fifth module added:
+
+---
+
+**PROMPT:**
+
+---
+
+# Build: Trofi AgriTech — Africa Agriculture Intelligence Platform
+
+## Context
+
+I am building a full-stack web platform called **Trofi AgriTech** — a comprehensive data and analytics system that tracks agriculture across the African continent (55 AU member states). The platform serves policymakers, researchers, development agencies, agribusiness stakeholders, and technology innovators.
+
+The platform has **five core modules**:
+
+---
+
+### MODULE 1: Agriculture Policy Tracker
+
+Track, compare, and analyze agriculture-related policies across all 55 AU member states.
+
+**Data dimensions:**
+- Policy name, country, enactment date, status (draft / enacted / amended / repealed)
+- Policy category: land tenure, subsidies & inputs, trade policy, food safety & standards, irrigation & water, extension services, climate adaptation, mechanization, seed systems, livestock, digital agriculture & AI
+- Alignment tags to continental frameworks (Malabo Declaration, CAADP, AfCFTA agriculture protocols, AU Agenda 2063, AU Digital Transformation Strategy)
+- Implementing agency, budget allocation (where available), review/sunset dates
+- Policy documents (PDF upload + metadata extraction)
+
+**Features:**
+- Filterable, searchable policy registry with country and regional (RECs: SADC, EAC, ECOWAS, COMESA, etc.) views
+- Policy timeline visualization per country
+- Cross-country policy comparison matrix
+- Policy gap analysis: which countries lack policies in critical categories
+- Malabo/CAADP scorecard alignment dashboard
+- Policy change alerts and notification system
+
+---
+
+### MODULE 2: Agriculture Trade Statistics
+
+Track intra-African and global agriculture trade flows.
+
+**Data dimensions:**
+- Commodity (HS code mapped to agriculture categories: cereals, oilseeds, livestock, horticulture, cash crops, processed foods, fisheries, forestry products)
+- Trade type: export, import, re-export
+- Partner country/region (bilateral flows)
+- Value (USD), volume (MT), unit price
+- Time series: monthly and annual from 2000–present
+- Trade balance per commodity per country
+- Tariff and non-tariff barriers (NTBs) where data exists
+
+**Features:**
+- Interactive trade flow maps (Sankey diagrams, choropleth maps)
+- Bilateral trade matrix (country × country × commodity)
+- Trade balance dashboards per country and per commodity
+- Trend analysis with year-on-year growth rates
+- AfCFTA impact tracking: pre/post tariff liberalization comparison
+- Top exporters/importers rankings
+- Terms of trade index for agriculture
+
+---
+
+### MODULE 3: Post-Harvest Loss (PHL) Tracker
+
+Monitor and analyze post-harvest losses across value chains and geographies.
+
+**Data dimensions:**
+- Commodity and commodity group
+- Loss stage: harvesting, handling, storage, transport, processing, market/retail
+- Loss type: quantitative (weight/volume), qualitative (nutritional, economic value)
+- Loss rate (%) and absolute loss (MT and USD equivalent)
+- Country, sub-national region (where granularity available)
+- Cause categories: inadequate storage, pest/disease, infrastructure gaps, cold chain failure, packaging, market access delays
+- Interventions: existing PHL reduction programs, technologies deployed, investment
+
+**Features:**
+- PHL hotspot maps by commodity and geography
+- Loss stage waterfall charts (farm-to-fork loss cascade)
+- Economic impact calculator: converting physical losses to USD, caloric, and nutritional equivalents
+- Intervention effectiveness tracker: before/after comparisons where data exists
+- Benchmarking: country vs. regional vs. continental average PHL rates
+- PHL reduction target tracking (AU/Malabo target: halve PHL by 2025)
+
+---
+
+### MODULE 4: Value Chain Analytics
+
+Map and analyze agriculture value chains across the continent.
+
+**Data dimensions:**
+- Commodity-specific value chains (at minimum: maize, rice, cassava, sorghum/millet, groundnuts, soybean, cocoa, coffee, tea, cotton, cashew, horticulture, livestock/dairy, fisheries)
+- Value chain stages: input supply, production, aggregation, processing, distribution, retail/export
+- Actors and actor types at each stage (smallholders, cooperatives, traders, processors, exporters)
+- Value addition at each stage (price margins, processing ratios)
+- Infrastructure: storage facilities, processing plants, markets, transport corridors, cold chain capacity
+- Enabling environment: finance access, extension services, certification/standards
+
+**Features:**
+- Interactive value chain maps per commodity per country
+- Price transmission analysis: farmgate → wholesale → retail → export
+- Value addition opportunity identification
+- Infrastructure gap mapping
+- Gender and youth participation indicators along value chains
+- Linkage to PHL module (where in the chain are losses highest?)
+- Comparative advantage index per commodity per country
+
+---
+
+### MODULE 5: AI Adoption in Agriculture Tracker
+
+Track, measure, and benchmark the adoption and impact of artificial intelligence and digital technologies in agriculture across Africa.
+
+**Data dimensions:**
+- **AI solutions registry:** Solution name, provider (company/institution/NGO), country of deployment, target crop/livestock, value chain stage addressed, technology type (computer vision, NLP, predictive analytics, remote sensing/satellite ML, IoT + ML, robotics, LLM-based advisory, generative AI)
+- **Adoption metrics:** Number of farmers/hectares reached, adoption rate (% of target population), scale classification (pilot / scaling / national rollout), years active
+- **Use case categories:** Crop disease & pest detection, yield prediction & forecasting, precision irrigation & input optimization, soil health assessment, weather & climate advisory, market price prediction, credit scoring & agricultural insurance, supply chain optimization, extension service delivery (AI chatbots, voice-based advisory), post-harvest loss reduction (smart storage, quality grading), livestock monitoring, aquaculture management
+- **Impact data:** Yield improvement (%), cost reduction (%), income change (%), PHL reduction attributable to AI intervention, water/input savings
+- **Enabling ecosystem:** National AI strategies and policies covering agriculture, digital infrastructure (mobile/internet penetration, rural connectivity), AgTech funding flows (venture capital, grants, DFI investment), incubators/accelerators supporting AgTech, research institutions and partnerships, open data and model repositories
+- **Readiness indicators:** Digital literacy rates among farming populations, smartphone and feature phone penetration in rural areas, availability of local-language AI tools, data governance and privacy frameworks, interoperability with existing agricultural information systems (e.g., DHIS2, e-extension platforms)
+- **Workforce & capacity:** AgTech startups per country, AI/data science talent pool indicators, university programs in agricultural AI/data science, farmer digital cooperatives and networks
+
+**Features:**
+- **AI Solutions Explorer:** Searchable, filterable catalogue of AI agriculture solutions deployed across Africa with verified impact data, filterable by country, crop, use case, technology type, and scale
+- **AI Readiness Index:** Composite country-level index scoring each nation's readiness to adopt AI in agriculture across dimensions: policy environment, digital infrastructure, human capital, data ecosystem, investment climate, and farmer access — with methodology transparency and downloadable sub-scores
+- **Adoption Heatmap:** Continental map showing AI adoption density by country and sub-region, overlayable with agricultural productivity data to visualize correlation
+- **Impact Dashboard:** Aggregated and disaggregated impact metrics — filter by technology type, crop, country to see evidence of what works and where
+- **Investment Tracker:** AgTech and AI-for-agriculture funding flows — venture capital, grant funding, DFI investments — by country, year, deal size, investor type, and stage (seed through Series C+)
+- **Innovation Pipeline:** Track solutions from pilot to scale, visualizing the "valley of death" and identifying which solutions successfully scale and why
+- **Digital Divide Monitor:** Map the gap between AI solution availability and farmer accessibility — highlighting connectivity, literacy, and language barriers
+- **Cross-module linkages:**
+  - Link to **Policy Tracker**: which countries have AI/digital agriculture policies in place?
+  - Link to **PHL Tracker**: which AI interventions are reducing post-harvest losses and by how much?
+  - Link to **Value Chain**: where in the value chain is AI being applied most, and where are the gaps?
+  - Link to **Trade**: are AI-adopting countries showing trade competitiveness improvements?
+- **Case study library:** Rich qualitative profiles of notable AI-in-agriculture deployments with lessons learned, scalability assessment, and replicability score
+- **Benchmarking tool:** Compare any two or more countries across all AI adoption dimensions side-by-side
+
+---
+
+## Technical Requirements
+
+### Architecture
+- **Frontend:** React 18+ with TypeScript, Tailwind CSS, shadcn/ui component library
+- **Visualizations:** Recharts for standard charts, D3.js for custom geo/network visualizations, Mapbox GL JS or Leaflet for maps
+- **Backend:** Node.js with Express or Next.js API routes
+- **Database:** PostgreSQL with PostGIS extension for geospatial queries
+- **ORM:** Prisma
+- **Authentication:** NextAuth.js with role-based access (Admin, Analyst, Viewer, Data Contributor)
+- **File storage:** S3-compatible for policy documents and datasets
+- **Search:** Full-text search on policies, AI solutions catalogue, and metadata (PostgreSQL FTS or Meilisearch)
+
+### Data Management
+- Admin data ingestion panel: CSV/Excel upload with validation, column mapping, and preview
+- API integrations scaffolded for: FAO FAOSTAT, UN Comtrade, World Bank, APHLIS (post-harvest losses), AfDB, CrunchBase/Dealroom (AgTech investment data), ITU (digital infrastructure indicators)
+- Data versioning and audit trail
+- Data quality flags and completeness indicators per country per module
+
+### Cross-Cutting Features
+- **Dashboard homepage** with continental summary KPIs across all five modules
+- **Country profiles** that aggregate data from all five modules into a single country view
+- **Regional Economic Community (REC) views** for SADC, EAC, ECOWAS, COMESA, IGAD, AMU, ECCAS, CEN-SAD
+- **Export:** PDF reports, CSV data downloads, chart image exports
+- **Responsive design** for desktop and tablet
+- **Dark/light mode**
+- **Trofi AgriTech branding:** Use a professional green/earth-tone palette with modern typography. The logo and platform name "Trofi AgriTech" should appear prominently in the navigation header and on the landing page.
+
+### Code Quality
+- Strict TypeScript throughout — no `any` types
+- Comprehensive error handling and loading states
+- Modular, reusable component architecture
+- Environment variable configuration for all secrets and endpoints
+- README with setup instructions
+
+---
+
+## Deliverable
+
+Build this as a **Next.js 14+ App Router** application. Start with:
+
+1. **Database schema** (Prisma) covering all five modules with proper relations, enums, and indexes
+2. **Seed data** for at least 5 countries across all modules (including sample AI solutions, readiness scores, and investment data) so the platform is demonstrable
+3. **Full frontend** with navigation, dashboards, and interactive visualizations for each module
+4. **Country profile pages** aggregating all five modules
+5. **Admin data management** interface for uploading and managing datasets
+6. **AI Readiness Index** methodology page with transparent scoring breakdown
+
+Structure the project cleanly with `/app`, `/components`, `/lib`, `/prisma`, and `/types` directories. Prioritize a working, visually polished MVP that demonstrates all five modules with real-looking seed data.
+
+---
+
+Feel free to adapt the scope or ask me to refine any module before you start building. Let me know if you want to start with a specific module first or build the full scaffold at once.
+
+---
+
+The AI Adoption module is designed to be the differentiator — most agriculture platforms track policy and trade, but very few systematically catalogue and benchmark AI deployment across the continent. The cross-module linkages (AI ↔ PHL reduction, AI ↔ trade competitiveness) are where the real analytical power sits.
+
+Want me to save this as a document you can reuse, or shall we start building Trofi AgriTech right now?
