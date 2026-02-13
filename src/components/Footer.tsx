@@ -17,6 +17,7 @@ const platformLinks = [
   { name: 'Post-Harvest Loss', href: '/modules/post-harvest-loss' },
   { name: 'Value Chain Analytics', href: '/modules/value-chain' },
   { name: 'AI Adoption', href: '/modules/ai-adoption' },
+  { name: 'Training & Capacity Building', href: '/modules/training' },
 ]
 
 const companyLinks = [

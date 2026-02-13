@@ -12,6 +12,7 @@ import {
   Leaf,
   GitBranch,
   Cpu,
+  GraduationCap,
 } from 'lucide-react'
 
 const modules = [
@@ -44,6 +45,12 @@ const modules = [
     href: '/modules/ai-adoption',
     icon: Cpu,
     description: 'Track AI technology adoption in agriculture',
+  },
+  {
+    name: 'Training & Capacity Building',
+    href: '/modules/training',
+    icon: GraduationCap,
+    description: 'Empowering women and youth in agriculture',
   },
 ]
 
@@ -83,7 +90,6 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileOpen) {
       document.body.style.overflow = 'hidden'
@@ -111,12 +117,24 @@ export default function Navbar() {
     setIsMobileModulesOpen(false)
   }
 
+  const linkColor = isScrolled
+    ? 'text-gray-700 hover:text-trofi-600 hover:bg-trofi-50'
+    : 'text-white/90 hover:text-white hover:bg-white/10'
+
+  const moduleBtnColor = isScrolled
+    ? isModulesOpen ? 'text-trofi-600 bg-trofi-50' : 'text-gray-700 hover:text-trofi-600 hover:bg-trofi-50'
+    : isModulesOpen ? 'text-white bg-white/15' : 'text-white/90 hover:text-white hover:bg-white/10'
+
+  const logoTextColor = isScrolled ? 'text-trofi-700' : 'text-white'
+  const logoSubColor = isScrolled ? 'text-sage-400' : 'text-white/60'
+  const menuBtnColor = isScrolled ? 'text-gray-700 hover:bg-trofi-50' : 'text-white hover:bg-white/10'
+
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-trofi-900/5 border-b border-white/20'
+            ? 'bg-white/90 backdrop-blur-xl shadow-lg shadow-gray-900/5 border-b border-gray-200/50'
             : 'bg-transparent'
         }`}
       >
@@ -132,14 +150,14 @@ export default function Navbar() {
                 alt="Trofi AgriTech"
                 width={36}
                 height={36}
-                className="h-7 md:h-8 w-auto opacity-90"
+                className={`h-7 md:h-8 w-auto transition-opacity duration-300 ${isScrolled ? 'opacity-90' : 'brightness-0 invert opacity-95'}`}
                 priority
               />
               <div className="hidden sm:flex flex-col">
-                <span className="text-base font-semibold text-trofi-700 leading-tight tracking-tight">
+                <span className={`text-base font-semibold leading-tight tracking-tight transition-colors duration-300 ${logoTextColor}`}>
                   Trofi AgriTech
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.18em] text-sage-400 font-medium leading-none">
+                <span className={`text-[9px] uppercase tracking-[0.18em] font-medium leading-none transition-colors duration-300 ${logoSubColor}`}>
                   Agriculture Redefined
                 </span>
               </div>
@@ -147,10 +165,9 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
-              {/* Home */}
               <Link
                 href="/"
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-trofi-600 rounded-lg hover:bg-trofi-50 transition-all duration-200"
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${linkColor}`}
               >
                 Home
               </Link>
@@ -164,11 +181,7 @@ export default function Navbar() {
               >
                 <button
                   onClick={() => setIsModulesOpen(!isModulesOpen)}
-                  className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                    isModulesOpen
-                      ? 'text-trofi-600 bg-trofi-50'
-                      : 'text-gray-700 hover:text-trofi-600 hover:bg-trofi-50'
-                  }`}
+                  className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${moduleBtnColor}`}
                 >
                   Modules
                   <ChevronDown
@@ -178,7 +191,6 @@ export default function Navbar() {
                   />
                 </button>
 
-                {/* Dropdown Panel */}
                 <div
                   className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-200 ${
                     isModulesOpen
@@ -212,25 +224,15 @@ export default function Navbar() {
                         )
                       })}
                     </div>
-                    <div className="border-t border-gray-100 bg-sage-50/50 px-5 py-3">
-                      <Link
-                        href="/modules"
-                        onClick={() => setIsModulesOpen(false)}
-                        className="text-xs font-medium text-trofi-600 hover:text-trofi-700 transition-colors"
-                      >
-                        View all modules &rarr;
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Other Nav Links */}
               {navLinks.slice(1).map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-trofi-600 rounded-lg hover:bg-trofi-50 transition-all duration-200"
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${linkColor}`}
                 >
                   {link.name}
                 </Link>
@@ -241,7 +243,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white bg-trofi-600 hover:bg-trofi-700 rounded-xl shadow-md shadow-trofi-600/25 hover:shadow-lg hover:shadow-trofi-600/30 transition-all duration-200 active:scale-[0.98]"
+                className="inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded-xl shadow-md shadow-orange-500/25 hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-200 active:scale-[0.98]"
               >
                 Get Started
               </Link>
@@ -250,7 +252,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl text-gray-700 hover:bg-trofi-50 transition-colors"
+              className={`lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl transition-colors ${menuBtnColor}`}
               aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
             >
               <span
@@ -280,19 +282,15 @@ export default function Navbar() {
             : 'opacity-0 pointer-events-none'
         }`}
       >
-        {/* Backdrop */}
         <div
           className="absolute inset-0 bg-gray-900/20 backdrop-blur-sm"
           onClick={closeMobile}
         />
-
-        {/* Panel */}
         <div
           className={`absolute top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-out ${
             isMobileOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          {/* Mobile Header */}
           <div className="flex items-center justify-between px-5 h-16 border-b border-gray-100">
             <Link href="/" onClick={closeMobile} className="flex items-center gap-2">
               <Image
@@ -313,10 +311,8 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Nav */}
           <div className="overflow-y-auto h-[calc(100%-4rem)] pb-20">
             <div className="px-3 py-4 space-y-1">
-              {/* Home */}
               <Link
                 href="/"
                 onClick={closeMobile}
@@ -325,7 +321,6 @@ export default function Navbar() {
                 Home
               </Link>
 
-              {/* Modules Accordion */}
               <div>
                 <button
                   onClick={() => setIsMobileModulesOpen(!isMobileModulesOpen)}
@@ -345,7 +340,7 @@ export default function Navbar() {
 
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isMobileModulesOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                    isMobileModulesOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
                   <div className="pl-4 pr-2 py-2 space-y-0.5">
@@ -374,7 +369,6 @@ export default function Navbar() {
                 </div>
               </div>
 
-              {/* Other Links */}
               {navLinks.slice(1).map((link) => (
                 <Link
                   key={link.href}
@@ -387,12 +381,11 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Mobile CTA */}
             <div className="px-5 pt-4 border-t border-gray-100 mt-4">
               <Link
                 href="/contact"
                 onClick={closeMobile}
-                className="flex items-center justify-center w-full px-6 py-3 text-sm font-semibold text-white bg-trofi-600 hover:bg-trofi-700 rounded-xl shadow-md transition-all duration-200"
+                className="flex items-center justify-center w-full px-6 py-3 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 rounded-xl shadow-md transition-all duration-200"
               >
                 Get Started
               </Link>

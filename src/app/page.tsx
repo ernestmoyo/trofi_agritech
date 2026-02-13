@@ -9,6 +9,7 @@ import {
   AlertTriangle,
   GitBranch,
   Brain,
+  GraduationCap,
   ArrowRight,
   ChevronRight,
   Globe,
@@ -21,6 +22,7 @@ import {
   Quote,
   Users,
   Leaf,
+  Heart,
 } from 'lucide-react'
 
 /* ------------------------------------------------------------------ */
@@ -193,6 +195,18 @@ export default function HomePage() {
       bgLight: 'bg-purple-50',
       iconColor: 'text-purple-600',
     },
+    {
+      name: 'Training & Capacity Building',
+      description:
+        'Empowering women and youth through agricultural training, consulting, and leadership development programs across Africa.',
+      icon: GraduationCap,
+      color: 'orange',
+      stats: 'Women & Youth Focused',
+      href: '/modules/training',
+      gradient: 'from-orange-500 to-amber-500',
+      bgLight: 'bg-orange-50',
+      iconColor: 'text-orange-600',
+    },
   ]
 
   const whyTrofi = [
@@ -211,10 +225,10 @@ export default function HomePage() {
       accent: 'earth',
     },
     {
-      icon: Zap,
-      title: 'AI-Powered Analytics',
+      icon: GraduationCap,
+      title: 'Consulting & Capacity Building',
       description:
-        'Tracking AI adoption and its impact on agricultural productivity across Africa, powering the next green revolution.',
+        'Training programs and advisory services building agricultural expertise across the continent, with a focus on empowering women and youth.',
       accent: 'sage',
     },
   ]
@@ -343,11 +357,11 @@ export default function HomePage() {
                   : 'opacity-0 translate-y-6'
               }`}
             >
-              A comprehensive data and analytics system tracking agriculture
-              policies, trade, post-harvest losses, value chains, and AI
-              adoption across all 55 African Union member states &mdash;
-              powering evidence-based decisions for the continent&apos;s
-              agricultural transformation.
+              A women-led consulting firm delivering comprehensive data
+              analytics, training, and advisory services across Africa&apos;s
+              agricultural sector &mdash; serving policymakers, researchers,
+              development agencies, and agribusiness stakeholders across all
+              55 AU member states.
             </p>
 
             {/* CTA Buttons */}
@@ -367,7 +381,7 @@ export default function HomePage() {
               </a>
               <Link
                 href="/about"
-                className="group inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-xl border border-white/25 hover:bg-white/20 transition-all duration-300 hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2 bg-orange-500 text-white font-semibold px-8 py-4 rounded-xl border border-orange-400 hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
                 Learn More
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -390,7 +404,7 @@ export default function HomePage() {
                 icon: Globe,
               },
               {
-                value: '5',
+                value: '6',
                 label: 'Intelligence Modules',
                 icon: BarChart3,
               },
@@ -437,13 +451,14 @@ export default function HomePage() {
               Platform Modules
             </div>
             <h2 className="section-title mb-4">
-              Five Pillars of{' '}
+              Six Pillars of{' '}
               <span className="text-gradient">Agricultural Intelligence</span>
             </h2>
             <p className="section-subtitle">
-              Our integrated modules provide comprehensive coverage of
-              Africa&apos;s agricultural landscape, from policy analysis to
-              AI-driven insights.
+              Our integrated modules and consulting services provide
+              comprehensive coverage of Africa&apos;s agricultural landscape,
+              from policy analysis and trade intelligence to training and
+              capacity building.
             </p>
           </div>
 
@@ -451,17 +466,22 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {modules.map((mod, i) => {
               const Icon = mod.icon
+              const isOrange = mod.color === 'orange'
               return (
                 <Link
                   key={i}
                   href={mod.href}
                   className={`module-card relative overflow-hidden ${
-                    i >= 3 ? 'md:col-span-1 lg:col-span-1' : ''
+                    isOrange
+                      ? 'ring-2 ring-orange-200 bg-gradient-to-br from-orange-50 to-amber-50'
+                      : ''
                   }`}
                 >
                   {/* Gradient accent top bar */}
                   <div
-                    className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${mod.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                    className={`absolute top-0 left-0 right-0 ${
+                      isOrange ? 'h-1.5 opacity-100' : 'h-1 opacity-0'
+                    } bg-gradient-to-r ${mod.gradient} group-hover:opacity-100 transition-opacity duration-500`}
                   />
 
                   {/* Icon */}
@@ -472,7 +492,13 @@ export default function HomePage() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-trofi-700 transition-colors duration-300">
+                  <h3
+                    className={`text-xl font-bold text-gray-900 mb-3 transition-colors duration-300 ${
+                      isOrange
+                        ? 'group-hover:text-orange-600'
+                        : 'group-hover:text-trofi-700'
+                    }`}
+                  >
                     {mod.name}
                   </h3>
                   <p className="text-gray-600 leading-relaxed mb-5">
@@ -481,12 +507,20 @@ export default function HomePage() {
 
                   {/* Stats Badge */}
                   <div className="flex items-center gap-2 text-sm font-medium text-gray-500 mb-6">
-                    <div className="w-2 h-2 rounded-full bg-trofi-400" />
+                    <div
+                      className={`w-2 h-2 rounded-full ${
+                        isOrange ? 'bg-orange-400' : 'bg-trofi-400'
+                      }`}
+                    />
                     {mod.stats}
                   </div>
 
                   {/* Link */}
-                  <div className="flex items-center gap-2 text-trofi-600 font-semibold text-sm group-hover:gap-3 transition-all duration-300">
+                  <div
+                    className={`flex items-center gap-2 font-semibold text-sm group-hover:gap-3 transition-all duration-300 ${
+                      isOrange ? 'text-orange-600' : 'text-trofi-600'
+                    }`}
+                  >
                     Explore Module
                     <ArrowRight className="w-4 h-4" />
                   </div>
@@ -624,6 +658,86 @@ export default function HomePage() {
       </Section>
 
       {/* ============================================================ */}
+      {/*  WOMEN EMPOWERMENT SECTION                                    */}
+      {/* ============================================================ */}
+      <Section className="py-24 lg:py-32 bg-gradient-to-r from-orange-500 to-amber-500 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-16 -right-16 w-[400px] h-[400px] rounded-full bg-white/10 animate-float" />
+          <div className="absolute -bottom-12 -left-12 w-[250px] h-[250px] rounded-full bg-white/5 animate-float-delayed" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-semibold px-4 py-2 rounded-full mb-4">
+              <Heart className="w-4 h-4" />
+              Women Empowerment
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+              Championing Women in{' '}
+              <br className="hidden sm:block" />
+              African Agriculture
+            </h2>
+            <p className="text-lg text-white/85 max-w-3xl mx-auto leading-relaxed">
+              Trofi AgriTech is committed to closing the gender gap in
+              African agriculture. Through targeted training programs,
+              leadership development, and data-driven advocacy, we empower
+              women farmers and agri-entrepreneurs to unlock their full
+              potential and drive the continent&apos;s food security agenda.
+            </p>
+          </div>
+
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 mb-12">
+            <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-2xl px-6 py-8 text-center hover:bg-white/25 transition-all duration-300">
+              <div className="text-4xl lg:text-5xl font-extrabold text-white mb-3">
+                70%
+              </div>
+              <p className="text-white/90 font-medium text-sm uppercase tracking-wider mb-2">
+                Women produce 70% of Africa&apos;s food
+              </p>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Yet they remain underrepresented in policy and leadership roles.
+              </p>
+            </div>
+            <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-2xl px-6 py-8 text-center hover:bg-white/25 transition-all duration-300">
+              <div className="text-4xl lg:text-5xl font-extrabold text-white mb-3">
+                &lt;20%
+              </div>
+              <p className="text-white/90 font-medium text-sm uppercase tracking-wider mb-2">
+                Land ownership by women
+              </p>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Despite being the backbone of agricultural production across the continent.
+              </p>
+            </div>
+            <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-2xl px-6 py-8 text-center hover:bg-white/25 transition-all duration-300">
+              <div className="text-4xl lg:text-5xl font-extrabold text-white mb-3">
+                10%
+              </div>
+              <p className="text-white/90 font-medium text-sm uppercase tracking-wider mb-2">
+                Agricultural credit to women
+              </p>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Only a fraction of agricultural financing reaches women farmers.
+              </p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <Link
+              href="/modules/training"
+              className="group inline-flex items-center justify-center gap-2 bg-white text-orange-600 font-semibold px-8 py-4 rounded-xl hover:bg-orange-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            >
+              Explore Training Programs
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
       {/*  LEADERSHIP SECTION                                           */}
       {/* ============================================================ */}
       <Section className="py-24 lg:py-32 bg-gray-50">
@@ -669,20 +783,20 @@ export default function HomePage() {
                       Isabel Moyo
                     </h3>
                     <p className="text-trofi-600 font-semibold text-lg">
-                      Founder &amp; CEO
+                      Founder &amp; CEO &middot; Consultant &amp; Trainer
                     </p>
                   </div>
 
                   {/* Bio text */}
                   <p className="text-gray-600 leading-relaxed mb-8">
                     Isabel Moyo leads Trofi AgriTech&apos;s mission to
-                    revolutionize agricultural data across the African
-                    continent. With deep expertise in agricultural policy and
-                    data systems, she is building the platform that connects
-                    Africa&apos;s fragmented agricultural information
-                    ecosystems into a powerful intelligence engine &mdash;
-                    enabling evidence-based decision-making from farm-level
-                    operations to continental policy frameworks.
+                    revolutionize agricultural data and consulting services
+                    across the African continent. With deep expertise in
+                    agricultural policy, data systems, and capacity building,
+                    she combines platform innovation with hands-on training
+                    and advisory services &mdash; empowering women, youth,
+                    and organizations to make evidence-based decisions from
+                    farm-level operations to continental policy frameworks.
                   </p>
 
                   {/* Quote */}
@@ -694,7 +808,7 @@ export default function HomePage() {
                       prosperity.&rdquo;
                     </p>
                     <cite className="block mt-3 text-sm text-gray-500 not-italic font-medium">
-                      &mdash; Isabel Moyo, Founder &amp; CEO
+                      &mdash; Isabel Moyo, Founder &amp; CEO, Consultant &amp; Trainer
                     </cite>
                   </blockquote>
                 </div>
